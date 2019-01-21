@@ -17,6 +17,7 @@ public class TestQueueViaStack {
         sortStack.push(1);
         sortStack.push(2);
         sortStack.push(3);
+        sortStack.push(0);
         System.out.println("sortstack pop" + sortStack.pop());
         System.out.println("sortstack pop" + sortStack.pop());
         System.out.println("sortstack pop" + sortStack.pop());
