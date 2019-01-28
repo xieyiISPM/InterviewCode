@@ -4,32 +4,39 @@ import java.util.Stack;
 
 public class ReverInt {
     public static void main(String[] args){
-        int num = 123;
-        int revNum = reverseInt(num);
+        int num = -147483648;
+        int revNum = reverse(num);
         System.out.println("Reversed number:" + revNum);
     }
 
-    private static int reverseInt(int num){
+    public static int reverse(int x) {
         boolean sign= false;
-        if(num < 0){
+        if(x < 0){
             sign = true;
-            num = -num ;
+            if(x == Integer.MIN_VALUE){
+                return 0;
+            }
+            x = -x ;
         }
-        int revInt = 0;
-        int q = num/10;
-        int r = num%10;
-        revInt = r;
+        int q = x/10;
+        int r = x%10;
+        long revInt = r;
 
         while(q!=0){
             r=q%10;
             q=q/10;
             revInt = revInt *10 + r;
+            if(revInt > Integer.MAX_VALUE){
+                return 0;
+            }
         }
 
 
         if(sign == true){
+
             revInt = -revInt;
+
         }
-        return revInt;
+        return (int)revInt;
     }
 }
